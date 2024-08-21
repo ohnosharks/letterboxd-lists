@@ -1,0 +1,144 @@
+
+
+.filter-menu {
+	margin-top: 30px;
+	margin-bottom: 60px;
+	background: #14181c;
+}
+.filter-menu.sticky {
+	position: fixed;
+	top: 0;
+	width: 230px;
+}
+
+.filter-menu .filter-options {
+	padding-top: 20px;
+	border-top: 1px solid #2B3440;
+	margin-top: 20px;
+	transition: 0.2s;
+	opacity: 0.3;
+}
+.filter-menu .filter-options.active {
+	opacity: 1;
+}
+
+.filter-option-group {
+	margin-top: 25px;
+}
+.filter-option-group:first-child {
+	margin-top: 0px;
+}
+.filter-option-group .options {
+	margin-top: 0;
+	/* max-height: 0; */
+	height: 0;
+	opacity: 0;
+	transition: 0.2s;
+	pointer-events: none;
+	overflow: hidden;
+}
+.filter-option-group.active .options {
+	margin-top: 12px;
+	/* max-height: 700px; */
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.filter-option-group[data-name="filterKeywords"] .options .input-container {
+	position: relative;
+}
+.filter-option-group[data-name="filterKeywords"] span {
+	position: absolute;
+	display: block;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 1px solid #bcd;
+	border-radius: 3px;
+	padding: 4px 7px 1px;
+	opacity: 0.5;
+	pointer-events: none;
+	color: white !important;
+	mix-blend-mode: difference;
+}
+
+/* keywords list */
+.filter-option-group[data-name="filterKeywords"] ul {
+	margin-top: 1em;
+	display: flex;
+	flex-wrap: wrap;
+}
+.filter-option-group[data-name="filterKeywords"] ul li {
+	position: relative;
+	background: #2c3440;
+	padding: 0.35em 0.5em 0.3em;
+	padding-right: 1.4em;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+	border-radius: 3px;
+	cursor: pointer;
+	animation: tagIn 0.2s forwards;
+}
+.filter-option-group[data-name="filterKeywords"] ul li::after {
+	content: '\00D7';
+	position: absolute;
+	right: 0.5em;
+}
+.filter-option-group[data-name="filterKeywords"] ul li:hover::after {
+	color: white;
+}
+
+@keyframes tagIn {
+	from {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* status display */
+.filter-display {
+	position: absolute;
+	color: #678;
+}
+.filter-display > span {
+	color: #9ab;
+}
+
+/* more filter settings */
+.filter-more-settings {
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #2B3440;
+}
+
+
+
+/* The list and filtered items */
+section.list {
+	transition: 0.3s;
+	max-height: 200px;
+}
+
+section.list-set:not(.fade-filtered) section.list.filtered {
+	transition: 0.3s;
+	max-height: 0;
+	margin-bottom: 0 !important;
+	opacity: 0;
+	padding: 0;
+	overflow: hidden;
+	border-bottom: none !important
+}
+
+section.list-set.fade-filtered section.list.filtered {
+	opacity: 0.1;
+}
+
+
+.pagination .previous {
+	float: right;
+	margin-right: 5px;
+}
